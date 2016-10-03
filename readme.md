@@ -18,6 +18,7 @@ to get started you need to install energy plus. Run the following command **afte
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
 You must do the following:
+
 1. run composer install 
 1. create your own .env
 
