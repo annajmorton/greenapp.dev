@@ -4,7 +4,10 @@
 
 to get started you need to install energy plus. Run the following command **after** setting up your Laravel - see below.
 
+It bash script is written assuming ubuntu 14.04
+
 1. `sudo energyplus.sh`
+1. if that doesn't work, try `sudo bash energyplus.sh`
 1. install in default directory /usr/local
 1. symbolic link location in default directory /usr/local/bin
 1. restart your vm or computer
