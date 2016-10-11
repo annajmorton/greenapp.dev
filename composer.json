@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "symfony/process": "2.7.*",
-        "symfony/class-loader": "^3.1"
+        "symfony/class-loader": "^3.1",
+        "league/csv": "^8.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

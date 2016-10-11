@@ -4,7 +4,13 @@
         <title>Greenapp</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
+        <script src="@{!! public_path(bootstrap/js/bootstrap.min.js) !!}"></script>
+        <link href="@{!! public_path(bootstrap/css/bootstrap.min.css) !!}" rel="stylesheet">
+        <link href="@{!! public_path(font-awesome/css/font-awesome.min.css) !!}" rel="stylesheet">
+        <link href="@{!! public_path(xcharts/xcharts.min.css) !!}" rel="stylesheet">
+        <script src="@{!! public_path(jquery/js/jquery.min.js) !!}"></script>
+        <script src="@{!! public_path(modernizr/js/modernizr.min.js) !!}"></script>
+        <script src="@{!! public_path(xcharts/xcharts.min.js) !!}"></script>
         <style>
             html, body {
                 height: 100%;
@@ -42,24 +48,18 @@
 
                 <div class="title">Green app</div>
 
-                <form action="" method="POST" enctype="multipart/form-data">
-
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                    Upload idf file: <input type="file" name="idf">
-
-                    <br>
-
-                    Upload weather file: <input type="file" name="weather">
-
-                    <br>
-
-                    <button type="submit">Submit</button>
-
-                </form>
+                Grafica
 
             </div>
 
         </div>
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                console.log("ready");
+            });
+        </script>
+
     </body>
 </html>
