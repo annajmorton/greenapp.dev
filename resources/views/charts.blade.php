@@ -3,62 +3,92 @@
     <head>
         <title>Greenapp</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-        <script src="@{!! public_path(bootstrap/js/bootstrap.min.js) !!}"></script>
-        <link href="@{!! public_path(bootstrap/css/bootstrap.min.css) !!}" rel="stylesheet">
-        <link href="@{!! public_path(font-awesome/css/font-awesome.min.css) !!}" rel="stylesheet">
-        <link href="@{!! public_path(xcharts/xcharts.min.css) !!}" rel="stylesheet">
-        <script src="@{!! public_path(jquery/js/jquery.min.js) !!}"></script>
-        <script src="@{!! public_path(modernizr/js/modernizr.min.js) !!}"></script>
-        <script src="@{!! public_path(xcharts/xcharts.min.js) !!}"></script>
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
+        <link href="assets/xcharts/xcharts.css" rel="stylesheet">
+        <script src="assets/jquery/js/jquery.min.js"></script>
+        <script src="assets/d3.min.js"></script>
+        <script src="assets/xcharts/xcharts.min.js"></script>
+        <style type="text/css">
+            .select-meter {
+                margin-bottom: 50px;
             }
         </style>
     </head>
     <body>
-        <div class="container">
-
-            <div class="content">
-
-                <div class="title">Green app</div>
-
-                Grafica
-
+        <article class="example">
+            <div class="row guttered">
+                <div class="span12 select-meter">
+                    <select onchange="changeMeter(this)">
+                        <option value="0">Select a meter</option>
+                        @foreach($data as $meter => $values)
+                            <option value="{{ $meter }}">{{ $meter }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="span12">
+                    <figure style="width: 100%; height: 300px;" id="graphic"></figure>
+                </div>
             </div>
-
-        </div>
+        </article>
 
 
         <script type="text/javascript">
-            $(document).ready(function() {
-                console.log("ready");
-            });
+            var data_graphics = {!! json_encode($data) !!};
+
+            function changeMeter(select) {
+                val = $(select).val();
+
+                if(val != 0) {
+                    values = data_graphics[val];
+                    data_show = [];
+
+                    limit = 0;
+                    $.each(values, function(date, value) {
+                        data_show.push({
+                            "x": date,
+                            "y": value
+                        });
+
+                        if(limit == 99) {
+                            return false;
+                        }
+
+                        limit++;
+                    });
+
+                    var data = {
+                        "xScale": "ordinal",
+                        "yScale": "linear",
+                        "main": [
+                            {
+                              "className": ".meter",
+                              "data": data_show
+                            }
+                        ]
+                    };
+
+                    var tt = document.createElement('div'),
+                      leftOffset = -(~~$('html').css('padding-left').replace('px', '') + ~~$('body').css('margin-left').replace('px', '')),
+                      topOffset = -32;
+                    tt.className = 'ex-tooltip';
+                    document.body.appendChild(tt);
+
+                    var opts = {
+                        //"dataFormatX": function (x) { return d3.time.format('%Y-%m-%d').parse(x); },
+                        //"tickFormatX": function (x) { return d3.time.format('%A')(x); },
+                        "mouseover": function (d, i) {
+                            var pos = $(this).offset();
+                            //$(tt).text(d3.time.format('%A')(d.x) + ': ' + d.y)
+                            $(tt).text(d.x+': '+d.y)
+                                .css({top: topOffset + pos.top, left: pos.left + leftOffset})
+                                .show();
+                        },
+                        "mouseout": function (x) {
+                            //$(tt).hide();
+                        }
+                    };
+                    var myChart = new xChart('line-dotted', data, '#graphic', opts);
+                }
+            }
         </script>
 
     </body>
