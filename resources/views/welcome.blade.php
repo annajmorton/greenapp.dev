@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Greenapp</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -37,9 +37,29 @@
     </head>
     <body>
         <div class="container">
+
             <div class="content">
-                <div class="title">Laravel 5</div>
+
+                <div class="title">Green app</div>
+
+                <form action="" method="POST" enctype="multipart/form-data">
+
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    Upload idf file: <input type="file" name="idf">
+
+                    <br>
+
+                    Upload weather file: <input type="file" name="weather">
+
+                    <br>
+
+                    <button type="submit">Submit</button>
+
+                </form>
+
             </div>
+
         </div>
     </body>
 </html>
