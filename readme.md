@@ -12,6 +12,11 @@ It bash script is written assuming ubuntu 14.04
 1. symbolic link location in default directory /usr/local/bin
 1. restart your vm or computer
 
+Your nginx and php must also be configured to allow file uploads 5MB or larger:
+
+1. add or modify the following block `client_max_body_size 100M;` to the http context of `/etc/nginx/nginx.conf`
+1. check your php ini file to make sure the upload file size limit is 5MB or greater `grep -E "upload_max_filesize|memory_limit|post_max_size" /etc/php5/fpm/php.ini`
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)

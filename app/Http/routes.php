@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/eplus', function () {
-    return Eplus::runIdf();
-});
+Route::post('/charts', 'EplusController@uploadFiles');
