@@ -11,12 +11,8 @@
 |
 */
 
-use App\Eplus;
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/eplus', function () {
-    return Eplus::runIdf();
-});
+Route::post('/', 'EplusController@uploadFiles');
