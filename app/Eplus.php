@@ -34,7 +34,6 @@ class Eplus extends Model
 		$idd = "/usr/local/EnergyPlus-8-5-0/Energy+.idd";
 		$success = true;
 		$data = array();
-
 		$command = "energyplus -i ".$idd." -x -r -s C -w ".$weather_path." -d output ".$idf_path;
 
 		$process = new Process($command);
@@ -51,7 +50,7 @@ class Eplus extends Model
 
 		if ($success)
 		{
-			$data = $this->readMeterCSV();
+			$data = self::readMeterCSV();
 		}
 
 		return compact('success', 'data');
