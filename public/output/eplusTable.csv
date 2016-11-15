@@ -1,4 +1,4 @@
-Program Version:,EnergyPlus, Version 8.5.0-c87e61b44b, YMD=2016.11.15 16:47
+Program Version:,EnergyPlus, Version 8.5.0-c87e61b44b, YMD=2016.11.15 18:25
 Tabular Output Report in Format: ,Comma
 
 Building:,Medium Office
@@ -176,7 +176,7 @@ FOR:,Entire Facility
 General
 
 ,,Value
-,Program Version and Build,EnergyPlus, Version 8.5.0-c87e61b44b, YMD=2016.11.15 16:47
+,Program Version and Build,EnergyPlus, Version 8.5.0-c87e61b44b, YMD=2016.11.15 18:25
 ,RunPeriod,Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
 ,Weather File,Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
 ,Latitude [deg],41.98

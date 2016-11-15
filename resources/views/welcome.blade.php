@@ -34,22 +34,46 @@
 
 
 @section('content')
-    <div class="title">Green app</div>
+    
+    <div class="alert alert-info" id="msginfo" hidden>
+    </div>
+    <div class="title">Greenapp</div>
+    <div id="uploads">
+        <form id="formid" action="" method="POST" enctype="multipart/form-data">
 
-        <form action="" method="POST" enctype="multipart/form-data">
-
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
 
             Upload idf file: <input type="file" name="idf">
 
             <br>
 
-            Upload weather file: <input type="file" name="weather">
+            Upload weather file: <input type="file" name="weather" required>
 
             <br>
 
-            <button type="submit">Submit</button>
+            Upload utility data file: <input type="file" name="data" required>
+
+            <br>
+
+            <button id="subb" type="submit">Submit</button>
 
         </form>
     </div>
+@endsection
+@section('script')
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#subb').click(function(event){
+                event.preventDefault();
+                $('.alert').hide();
+                $('#uploads').hide();
+                $('#msginfo').show();
+                $('#msginfo').html("please wait while we process your request");
+                $('#formid').submit();
+            })
+
+        })
+    </script>
 @endsection
