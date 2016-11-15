@@ -108,14 +108,24 @@ class EplusController extends Controller
             move_uploaded_file($tmp_name, $weather_path);
         }
 
+        if($_FILES["idf"]["error"] == UPLOAD_ERR_OK && $_FILES["weather"]["error"] == UPLOAD_ERR_OK){
 
-        $result = Eplus::generateFiles($idf_path, $weather_path);
+            $result = Eplus::generateFiles($idf_path, $weather_path);
+            
 
-        if ($result['success'])
-        {
-            $data = $result['data'];
+            if ($result['success'])
+            {
+                $data = $result['data'];
+                return view('charts', compact('data'));
+                
+            } else {
 
-            return view('charts', compact('data'));
+                session()->flash('eperror', 'your file did not run successfully');
+                return back();
+            }
+        } else {
+            session()->flash('upload', 'please upload file');
+            return back();
         }
     }
 }
