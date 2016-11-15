@@ -19,7 +19,7 @@
                 <div class="span12 select-meter">
                     <select onchange="changeMeter(this)">
                         <option value="0">Select a meter</option>
-                        @foreach($data as $meter => $values)
+                        @foreach($eplus_out as $meter => $values)
                             <option value="{{ $meter }}">{{ $meter }}</option>
                         @endforeach
                     </select>
@@ -32,7 +32,7 @@
 
 
         <script type="text/javascript">
-            var data_graphics = {!! json_encode($data) !!};
+            var data_graphics = {!! json_encode($eplus_out) !!};
 
             function changeMeter(select) {
                 val = $(select).val();

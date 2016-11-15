@@ -109,13 +109,46 @@ class EplusController extends Controller
         }
 
 
-        $result = Eplus::generateFiles($idf_path, $weather_path);
+        if ($_FILES["data"]["error"] == UPLOAD_ERR_OK) {
+            $tmp_name = $_FILES["data"]["tmp_name"];
+            // basename() may prevent filesystem traversal attacks;
+            // further validation/sanitation of the filename may be appropriate
+            $name = basename($_FILES["data"]["name"]);
+            $data_path = "{$uploads_dir}/data/{$name}";
+            move_uploaded_file($tmp_name, $data_path);
+        }
 
-        if ($result['success'])
-        {
-            $data = $result['data'];
+        if($_FILES["idf"]["error"] == UPLOAD_ERR_OK && $_FILES["weather"]["error"] == UPLOAD_ERR_OK){
 
-            return view('charts', compact('data'));
+            $result = Eplus::generateFiles($idf_path, $weather_path);
+            
+
+            if ($result['success'])
+            {
+                $eplus_out = $result['data'];
+
+                if($_FILES["data"]["error"] == UPLOAD_ERR_OK){
+
+                    $meter_data = [];
+
+                    // code to get utility meter data here ....  use the Meter Model
+
+                } else {
+                    session()->flash('upload', 'upload required information');
+                    return back();
+                }
+
+                return view('charts', ['eplus_out'=>$eplus_out, 'meter_data',$meter_data]);
+
+            } else {
+
+                session()->flash('eperror', 'your file did not run successfully');
+                return back();
+            }
+
+        } else {
+            session()->flash('upload', 'upload required information');
+            return back();
         }
     }
 }

@@ -1,0 +1,13 @@
+ ReadVarsESO
+ processing:/vagrant/sites/greenapp.dev/storage/uploads/idfs/ASHRAE90.1_OfficeMedium_STD2013_Chicago.rvi
+ Requested ESO file=output/eplus.eso
+ does not exist.  ReadVarsESO program terminated.
+ ReadVarsESO program terminated.
+ ReadVarsESO
+ processing:/vagrant/sites/greenapp.dev/storage/uploads/idfs/ASHRAE90.1_OfficeMedium_STD2013_Chicago.mvi
+ input file:output/eplus.mtr
+ output file:output/eplusMeter.csv
+ getting all vars from:output/eplus.mtr
+  number variables requested for output=           5
+ ReadVars Run Time=00hr 00min  0.15sec
+ ReadVarsESO program completed successfully.
