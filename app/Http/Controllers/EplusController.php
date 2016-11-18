@@ -88,67 +88,79 @@ class EplusController extends Controller
 
     public function uploadFiles()
     {
-        $uploads_dir = storage_path('uploads');
 
-        if ($_FILES["idf"]["error"] == UPLOAD_ERR_OK) {
-            $tmp_name = $_FILES["idf"]["tmp_name"];
-            // basename() may prevent filesystem traversal attacks;
-            // further validation/sanitation of the filename may be appropriate
-            $name = basename($_FILES["idf"]["name"]);
-            $idf_path = "{$uploads_dir}/idfs/{$name}";
-            move_uploaded_file($tmp_name, $idf_path);
-        }
-
-        if ($_FILES["weather"]["error"] == UPLOAD_ERR_OK) {
-            $tmp_name = $_FILES["weather"]["tmp_name"];
-            // basename() may prevent filesystem traversal attacks;
-            // further validation/sanitation of the filename may be appropriate
-            $name = basename($_FILES["weather"]["name"]);
-            $weather_path = "{$uploads_dir}/weathers/{$name}";
-            move_uploaded_file($tmp_name, $weather_path);
-        }
-
-
-        if ($_FILES["data"]["error"] == UPLOAD_ERR_OK) {
-            $tmp_name = $_FILES["data"]["tmp_name"];
-            // basename() may prevent filesystem traversal attacks;
-            // further validation/sanitation of the filename may be appropriate
-            $name = basename($_FILES["data"]["name"]);
-            $data_path = "{$uploads_dir}/data/{$name}";
-            move_uploaded_file($tmp_name, $data_path);
-        }
-
-        if($_FILES["idf"]["error"] == UPLOAD_ERR_OK && $_FILES["weather"]["error"] == UPLOAD_ERR_OK){
-
-            $result = Eplus::generateFiles($idf_path, $weather_path);
-            
-
-            if ($result['success'])
-            {
-                $eplus_out = $result['data'];
-
-                if($_FILES["data"]["error"] == UPLOAD_ERR_OK){
-
-                    $meter_data = [];
-
-                    // code to get utility meter data here ....  use the Meter Model
-
-                } else {
-                    session()->flash('upload', 'upload required information');
-                    return back();
-                }
-
-                return view('charts', ['eplus_out'=>$eplus_out, 'meter_data',$meter_data]);
-
-            } else {
-
-                session()->flash('eperror', 'your file did not run successfully');
-                return back();
-            }
-
-        } else {
-            session()->flash('upload', 'upload required information');
+        if (!$this->validateUploadFiles()) {
+            session()->flash('upload', 'Upload required information');
             return back();
         }
+
+        $idf_path = $this->moveIdfFile();
+        $weather_path = $this->moveWeatherFile();
+        $data_path = $this->moveDataFile();
+
+        $result = Eplus::generateFiles($idf_path, $weather_path);
+
+        if (!$result['success']) {
+            session()->flash('eperror', 'Your file did not run successfully');
+            return back();
+        }
+
+        $eplus_out = $result['data'];
+
+        $meter_data = [];
+
+        // code to get utility meter data here ....  use the Meter Model
+
+        return view('charts', compact('eplus_out', 'meter_data'));
+    }
+
+    private function validateUploadFiles()
+    {
+        if ($_FILES["idf"]["error"] != UPLOAD_ERR_OK || 
+            $_FILES["weather"]["error"] != UPLOAD_ERR_OK ||
+            $_FILES["data"]["error"] != UPLOAD_ERR_OK) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function moveIdfFile()
+    {
+        $uploads_dir = storage_path('uploads');
+        $tmp_name = $_FILES["idf"]["tmp_name"];
+        // basename() may prevent filesystem traversal attacks;
+        // further validation/sanitation of the filename may be appropriate
+        $name = basename($_FILES["idf"]["name"]);
+        $path = "{$uploads_dir}/idfs/{$name}";
+        move_uploaded_file($tmp_name, $path);
+
+        return $path;
+    }
+
+    private function moveWeatherFile()
+    {
+        $uploads_dir = storage_path('uploads');
+        $tmp_name = $_FILES["weather"]["tmp_name"];
+        // basename() may prevent filesystem traversal attacks;
+        // further validation/sanitation of the filename may be appropriate
+        $name = basename($_FILES["weather"]["name"]);
+        $path = "{$uploads_dir}/weathers/{$name}";
+        move_uploaded_file($tmp_name, $path);
+
+        return $path;
+    }
+
+    private function moveDataFile()
+    {
+        $uploads_dir = storage_path('uploads');
+        $tmp_name = $_FILES["data"]["tmp_name"];
+        // basename() may prevent filesystem traversal attacks;
+        // further validation/sanitation of the filename may be appropriate
+        $name = basename($_FILES["data"]["name"]);
+        $path = "{$uploads_dir}/data/{$name}";
+        move_uploaded_file($tmp_name, $path);
+
+        return $path;
     }
 }

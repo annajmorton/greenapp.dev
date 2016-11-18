@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <title>Greenapp</title>
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-        @yield('pagestyle')
+        <script src="{{ URL::asset('assets/jquery/js/jquery.min.js') }}"></script>
+
+        @yield('styles')
     </head>
+
     <body>
         <div class="container">
 
@@ -17,6 +21,7 @@
 
         </div>
     </body>
-    @yield('script')
+
+    @yield('scripts')
 
 </html>
