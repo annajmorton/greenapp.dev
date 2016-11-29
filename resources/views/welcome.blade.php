@@ -48,6 +48,7 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
 
             Upload idf file: <input type="file" name="idf">
+            <em>file must be version 8.5 or later</em>
 
             <br>
 
