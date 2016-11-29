@@ -1,6 +1,8 @@
-@extends('master')
+@extends('default/layout')
 
-@section('pagestyle')
+@section('styles')
+    @parent
+
     <style>
         html, body {
             height: 100%;
@@ -34,10 +36,12 @@
 
 
 @section('content')
-    
+
+    <div class="title">Greenapp</div>
+
     <div class="alert alert-info" id="msginfo" hidden>
     </div>
-    <div class="title">Greenapp</div>
+
     <div id="uploads">
         <form id="formid" action="" method="POST" enctype="multipart/form-data">
 
@@ -56,25 +60,24 @@
 
             <br>
 
-            <button id="subb" type="submit">Submit</button>
+            <button type="submit">Submit</button>
 
         </form>
     </div>
+
 @endsection
-@section('script')
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+@section('scripts')
+    @parent
+
     <script type="text/javascript">
-        $(document).ready(function(){
 
-            $('#subb').click(function(event){
-                event.preventDefault();
-                $('.alert').hide();
-                $('#uploads').hide();
-                $('#msginfo').show();
-                $('#msginfo').html("please wait while we process your request");
-                $('#formid').submit();
-            })
-
+        $('#formid').on('submit', function(event) {
+            $('.alert').hide();
+            $('#uploads').hide();
+            $('#msginfo').html("Please wait while we process your request");
+            $('#msginfo').show();
         })
+
     </script>
 @endsection
