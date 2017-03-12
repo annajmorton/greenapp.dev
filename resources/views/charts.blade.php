@@ -37,20 +37,24 @@
     <script src="assets/xcharts/xcharts.min.js"></script>
 
     <script type="text/javascript">
-        var data_graphics = {!! json_encode($eplus_out) !!};
+        var eplusdata = {!! json_encode($eplus_out) !!};
+        var umeter = {!! json_encode($umeter_out) !!};
 
         function changeMeter(select) {
             val = $(select).val();
 
             if(val != 0) {
-                values = data_graphics[val];
-                data_show = [];
-
+                values_eplus = eplusdata[val];
+                values_umeter = umeter[val];
+                
+                data_show_eplus = [];
+                data_show_umeter = [];
+           
                 limit = 0;
-                $.each(values, function(date, value) {
-                    data_show.push({
+                $.each(values_eplus, function(date, value) {
+                    data_show_eplus.push({
                         "x": date,
-                        "y": value
+                        "y": (value/1000)
                     });
 
                     if(limit == 99) {
@@ -60,13 +64,34 @@
                     limit++;
                 });
 
+                limit = 0;
+                $.each(values_umeter, function(date, value) {
+                    data_show_umeter.push({
+                        "x": date,
+                        "y": (value/1000)
+                    });
+
+                    if(limit == 99) {
+                        return false;
+                    }
+
+                    limit++;
+                });
+
+
+
                 var data = {
                     "xScale": "ordinal",
-                    "yScale": "linear",
+                    "yScale": "ordinal",
+                    "type" : "bar",
                     "main": [
                         {
-                          "className": ".meter",
-                          "data": data_show
+                          "className": ".eplus",
+                          "data": data_show_eplus
+                        },
+                        {
+                          "className": ".umeter",
+                          "data": data_show_umeter
                         }
                     ]
                 };
@@ -78,8 +103,6 @@
                 document.body.appendChild(tt);
 
                 var opts = {
-                    //"dataFormatX": function (x) { return d3.time.format('%Y-%m-%d').parse(x); },
-                    //"tickFormatX": function (x) { return d3.time.format('%A')(x); },
                     "mouseover": function (d, i) {
                         var pos = $(this).offset();
                         //$(tt).text(d3.time.format('%A')(d.x) + ': ' + d.y)
@@ -89,9 +112,12 @@
                     },
                     "mouseout": function (x) {
                         //$(tt).hide();
+                    },
+                    "sortX" : function (a, b) { return (!a.x && !b.x) ? 0 : (a.x < b.x) ? -1 : 1; 
                     }
                 };
-                var myChart = new xChart('line-dotted', data, '#graphic', opts);
+                // var myChart = new xChart('line-dotted', data, '#graphic', opts);
+                var myChart = new xChart('line-dotted', data, '#graphic',opts);
             }
         }
     </script>

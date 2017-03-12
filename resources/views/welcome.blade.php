@@ -37,7 +37,7 @@
 
 @section('content')
 
-    <div class="title">Greenapp</div>
+    <div class="title">Talking Walls</div>
 
     <div class="alert alert-info" id="msginfo" hidden>
     </div>
@@ -75,7 +75,7 @@
         $('#formid').on('submit', function(event) {
             $('.alert').hide();
             $('#uploads').hide();
-            $('#msginfo').html("Please wait while we process your request");
+            $('#msginfo').html("Please wait while we process your request. This may take several minutes...");
             $('#msginfo').show();
         })
 

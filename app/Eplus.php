@@ -13,21 +13,13 @@ use PhpUnstructuredTextParser\TextParser;
 class Eplus extends Model
 { 
     
-    public static function getIdf($path_idf)
-    {
-        // $file_idf = Reader::createFromPath($path_idf);
-        // $parser = new TextParser('vendor/aymanrb/php-unstructured-text-parser/test/templates/t_0.txt');
-        // return $parser->parseText($file_idf);
-    }
-
     public static function generateFiles($idf_path, $weather_path)
     {
 		$idd = "/usr/local/EnergyPlus-8-5-0/Energy+.idd";
 		$success = true;
 		$data = array();
 
-		$command = "energyplus -i ".$id." -x -r -s C -w ".$weather_path." -d output ".$idf_path;
-
+		$command = "energyplus -i ".$idd." -x -s C -w ".$weather_path." -d output ".$idf_path;
 		$process = new Process($command);
 		$process->setTimeout(0);
 
@@ -41,7 +33,9 @@ class Eplus extends Model
 
 		if ($success)
 		{
-            $data = self::readMeterCSV();
+            //I broke this here
+            //$data = self::readMeterCSV();
+            $data = "it ran just fine this should be a real message";
 		}
 
 		return compact('success', 'data');
