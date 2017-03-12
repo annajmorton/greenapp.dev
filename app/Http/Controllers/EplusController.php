@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Eplus;
+use App\Meter; 
 
 class EplusController extends Controller
 {
@@ -98,6 +99,8 @@ class EplusController extends Controller
         $weather_path = $this->moveWeatherFile();
         $data_path = $this->moveDataFile();
 
+        
+        //run EnergyPlus File Here
         $result = Eplus::generateFiles($idf_path, $weather_path);
 
         if (!$result['success']) {
@@ -105,13 +108,15 @@ class EplusController extends Controller
             return back();
         }
 
+        $mtr_file = base_path('output') . "/eplus.mtr";
+        $result = Meter::LoadEplusData($mtr_file);
+
+        //Load Utility Meter data here
+        $result2 = Meter::LoadMeter($data_path);
+
         $eplus_out = $result['data'];
-
-        $meter_data = [];
-
-        // code to get utility meter data here ....  use the Meter Model
-
-        return view('charts', compact('eplus_out', 'meter_data'));
+        $umeter_out = $result2['data'];
+        return view('charts', compact('eplus_out','umeter_out'));
     }
 
     private function validateUploadFiles()

@@ -11,8 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('visitor', 'VisitorController@showhome')->name('visitor');
+
+Route::get('', function () {
+    return redirect()->route('visitor');
 });
 
-Route::post('/', 'EplusController@uploadFiles');
+Route::post('visitor','VisitorController@store');
+
+Route::post('eplus', 'EplusController@uploadFiles');
+
+Route::get('/test', function () {
+    return view('welcome');
+});
