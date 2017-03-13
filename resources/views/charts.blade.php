@@ -53,7 +53,7 @@
                 limit = 0;
                 $.each(values_eplus, function(date, value) {
                     data_show_eplus.push({
-                        "x": date,
+                        "x": parseInt(date),
                         "y": (value/1000)
                     });
 
@@ -67,7 +67,7 @@
                 limit = 0;
                 $.each(values_umeter, function(date, value) {
                     data_show_umeter.push({
-                        "x": date,
+                        "x": parseInt(date),
                         "y": (value/1000)
                     });
 

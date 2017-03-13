@@ -43,7 +43,7 @@
     </div>
 
     <div id="uploads">
-        <form id="formid" action="" method="POST" enctype="multipart/form-data">
+        <form class="formid" action="/eplus" method="POST" enctype="multipart/form-data">
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
 
@@ -60,8 +60,14 @@
 
             <br>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Submit</button>     
 
+        </form>
+
+        <form class="formid" action="/eplus" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <button type="submit">don't have files? just try this...</button> 
         </form>
     </div>
 
@@ -72,7 +78,7 @@
 
     <script type="text/javascript">
 
-        $('#formid').on('submit', function(event) {
+        $('.formid').on('submit', function(event) {
             $('.alert').hide();
             $('#uploads').hide();
             $('#msginfo').html("Please wait while we process your request. This may take several minutes...");

@@ -11,80 +11,31 @@ use App\Meter;
 
 class EplusController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function runDefault()
     {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $idf_path = storage_path('default') . "/monthmeter.idf";
+        $weather_path = storage_path('default') . "/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw";
+        $data_path = storage_path('default') ."/data_Office_default.csv";
+        
+        //run EnergyPlus File Here
+        $result = Eplus::generateFiles($idf_path, $weather_path);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if (!$result['success']) {
+            session()->flash('eperror', 'Your file did not run successfully');
+            return back();
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $mtr_file = base_path('output') . "/eplus.mtr";
+        $result = Meter::LoadEplusData($mtr_file);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        //Load Utility Meter data here
+        $result2 = Meter::LoadMeter($data_path);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $eplus_out = $result['data'];
+        $umeter_out = $result2['data'];
+        return view('charts', compact('eplus_out','umeter_out'));
     }
 
     public function uploadFiles()
@@ -98,7 +49,6 @@ class EplusController extends Controller
         $idf_path = $this->moveIdfFile();
         $weather_path = $this->moveWeatherFile();
         $data_path = $this->moveDataFile();
-
         
         //run EnergyPlus File Here
         $result = Eplus::generateFiles($idf_path, $weather_path);
