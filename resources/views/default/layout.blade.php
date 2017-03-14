@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+    <meta name="viewport" content="width=[widest centered div];"/>
     <head>
         <title>Talking Walls</title>
         <link rel="icon" href="images/favicon.png">

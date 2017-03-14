@@ -6,6 +6,7 @@
     <script src="https://use.fontawesome.com/892c4b30ee.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet"> --}}
     <style>
         html, body {
             height: 100%;
@@ -19,6 +20,7 @@
             font-weight: 100;
             /*font-family: 'Arial';*/
             font-family: 'Inconsolata', monospace;
+            /*font-family: 'Ultra', serif;*/
             background-color: black;
             color: white;
         }
@@ -202,18 +204,11 @@
             -2px 2px 0 #fff,
             2px 2px 0 #fff; 
         }
-        .tooltip .tooltiptext::after {
-            content: " ";
-            position: absolute;
-            top: 100%; /* At the bottom of the tooltip */
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: black transparent transparent transparent;
-        }
         i{
-            color: white;
+            color: black;
+        }
+        .hide{
+            display: none;
         }
     </style>
 @endsection
@@ -222,8 +217,8 @@
 @section('content')
     <div class="parallax">
         <div class="page">
-           <div class="section">
                 <a name="backtotop"></a>
+           <div class="section">
                 <img class="post sm title" id="logo" src="images/logo.png">
            </div>
            <div class="section">
@@ -232,18 +227,10 @@
                 <div class="post lg title"><a class="post lg title" href="#contactus"><h2>click here to contact us!</h2></a><h2>keep scrolling for answers to why, how, and when</h2></div>
            </div>
 
-            <div class="textblk"><h4>some intro of each user here.</h4></div>
+           <div class="textblk"><h4>why? to fill a knowledge gap between how building energy efficiency measures are designed and how they actually perform. The Investor Confidence Project of the Environmental Defense Fund identified uncertainty about return on investments as one of the 3 main barriers to investment in existing building energy efficiency retrofits. Buildings are responsible for roughly 30% of green-house gas emissions in the US. If we can reduce building energy consumption through investment in effective energy efficiency measures, we can make our society more sustainable.</h4></div>
            <div class="section">
                 <div class="post xs"><img class="sketch" src="images/designer.png"></div>
                 <div class="post sm"><img class="sketch" src="images/builder.png"></div>
-                <div class="post xs"><img class="sketch" src="images/buildsys.png"></div>
-                <div class="post sm"><img class="sketch" src="images/occuser.png"></div>
-           </div>
-
-           <div class="textblk"><h4>why? to fill a knowledge gap between how building energy efficiency measures are designed and how they actually perform. The Investor Confidence Project of the Environmental Defense Fund identified uncertainty about return on investments as one of the 3 main barriers to investment in existing building energy efficiency retrofits. Buildings are responsible for roughly 30% of green-house gas emissions in the US. If we can reduce building energy consumption through investment in effective energy efficiency measures, we can make our society more sustainable.</h4></div>
-           <div class="section">
-                <div class="post sm"><img class="sketch" src="images/thegap/designer_gap.png"></div>
-                <div class="post sm"><img class="sketch" src="images/thegap/builder_gap.png"></div>
                 <div class="post xs"><img class="sketch" src="images/thegap/the.png"></div>
                 <div class="post xs"><img class="sketch" src="images/thegap/gap.png"></div>
                 <div class="post sm"><img class="sketch" src="images/thegap/user_gap.png"></div>
@@ -254,14 +241,16 @@
            </div>
            <div class="textblk"><h4>when? we will be launching the first protoype summer 2017. This phase includes uploading design information and utility data to create a compairison feedback loop. </h4></div>
            <div class="section">
+                <div class="post lg title"><h2>1 upload design energy model</h2></div>
                 <div class="post sm"><img class="sketch" src="images/phase1/designer_p1.png"></div>
                 <div class="post xs"><img class="sketch" src="images/phase1/arrow_p1.png"></div>
                 <div class="post sm"><img class="sketch" src="images/phase1/app_p1a.png"></div>
            </div>
            <div class="section">
-                <div class="post sm"><img class="sketch" src="images/phase1/building_p1b.png"></div>
+                <div class="post lg title"><h2>2 connect building utility meters</h2></div>
+                <div class="post xs"><img class="sketch" src="images/phase1/building_p1b.png"></div>
                 <div class="post xs"><img class="sketch" src="images/phase1/arrow_p1b.png"></div>
-                <div class="post sm"><img class="sketch" src="images/phase1/app_p1b.png"></div>
+                <div class="post xs"><img class="sketch" src="images/phase1/app_p1b.png"></div>
            </div>
 
            <div class="textblk"><h4>interested? share your email and/or checkout out our preliminary, pre-beta prelude platform!</h4></div>
@@ -271,19 +260,26 @@
                 <input type="email" pattern="[^ @]*@[^ @]*" name="email" value="" placeholder="type email...">
 
                 @foreach ($surveys as $survey)
-                    <label class="checkbox-inline"><input name="options[]" type="checkbox" value= {{{$survey->id}}} >{{$survey->survey_question}}</label>
+                    <div>
+                        <label class="checkbox-inline">
+                            <input name="options[]" type="checkbox" value= {{{$survey->id}}} >{{$survey->survey_question}}
+                        </label>
+                    </div>
                 @endforeach
                 
                 <input type="submit" value="click me!">
             </form>
 
-            <div class="textblk">
-                <a name="contactus"></a>
-                <a href="https://github.com/annajmorton/greenapp.dev"><i class="fa fa-github fa-5x" aria-hidden="true"></i></a>
-                <i class="fa fa-facebook-square fa-5x" aria-hidden="true"></i>
-                <a class="post lg title" href="#backtotop"><h2>return to top of page</h2></a>
-                <a href="https://www.instagram.com/ifawallcouldtalk/?hl=en"><i class="fa fa-instagram fa-5x" aria-hidden="true"></i></a>
-                <i class="fa fa-envelope-square fa-5x" aria-hidden="true"></i><div class="tooltip">does this work<span class="tooltiptext">info@ifawallcouldtalk.com</span></div>
+            <div>
+                <a name="contactus"></a> 
+                <a target="_blank" href="https://www.instagram.com/ifawallcouldtalk/?hl=en">    <i class="fa fa-instagram fa-5x" aria-hidden="true"></i>
+                </a>
+                <i id="emailicon" class="fa fa-envelope-square fa-5x" aria-hidden="true"></i>
+                <div id="email" class="hide" style="color:#42f4c5;background-color:black;"><h4>kvarner@ifawallcouldtalk.com</h4></div>
+                <a class="post lg title" href="#backtotop">
+                    <h2>return to top of page</h2>
+                </a>
+              
             </div>
 
         </div>
@@ -294,6 +290,18 @@
     @parent
 
     <script type="text/javascript">
+    $('#emailicon').click( 
+      function() {
+        $( "#emailicon").toggleClass( "hide" );
+        $( "#email" ).toggleClass( "hide" );
+      }
+    );
+     $('#email').click( 
+      function() {
+        $( "#emailicon" ).toggleClass( "hide" );
+        $( "#email" ).toggleClass( "hide" );
+      }
+    );
 
     </script>
 @endsection
