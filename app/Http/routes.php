@@ -22,6 +22,6 @@ Route::post('visitor','VisitorController@store');
 Route::post('eplus', 'EplusController@uploadFiles');
 Route::put('eplus', 'EplusController@runDefault');
 
-Route::get('/test', function () {
-    return view('welcome');
-});
+// Route::get('/test', function () {
+//     return view('charts');
+// });

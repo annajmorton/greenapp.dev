@@ -31,6 +31,10 @@
         .title {
             font-size: 96px;
         }
+        #default{
+            color: red;
+            background-color: 
+        }
     </style>
 @endsection
 
@@ -40,6 +44,13 @@
     <div class="title">Talking Walls</div>
 
     <div class="alert alert-info" id="msginfo" hidden>
+    </div>
+    <div id='default'>
+        <form class="formid" action="/eplus" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <button type="submit"><h1>don't have the files below? click here to run the default files...</h1></button> 
+        </form>
     </div>
 
     <div id="uploads">
@@ -64,11 +75,6 @@
 
         </form>
 
-        <form class="formid" action="/eplus" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_method" value="PUT">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <button type="submit">don't have files? just try this...</button> 
-        </form>
     </div>
 
 @endsection
@@ -81,6 +87,7 @@
         $('.formid').on('submit', function(event) {
             $('.alert').hide();
             $('#uploads').hide();
+            $('#default').hide();
             $('#msginfo').html("Please wait while we process your request. This may take several minutes...");
             $('#msginfo').show();
         })
