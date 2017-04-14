@@ -18,10 +18,7 @@ Route::get('', function () {
 });
 
 Route::post('visitor','VisitorController@store');
+Route::get('alpha','VisitorController@store');
 
 Route::post('eplus', 'EplusController@uploadFiles');
 Route::put('eplus', 'EplusController@runDefault');
-
-// Route::get('/test', function () {
-//     return view('charts');
-// });

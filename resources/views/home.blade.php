@@ -53,6 +53,12 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
         }
+        .title{
+            font-family: 'Permanent Marker', cursive;
+            color:black;
+            font-size: 5em;
+            margin-top: none;
+        }
 
         .page{
             display: flex;
@@ -221,13 +227,15 @@
            <div class="section">
                 <img class="post sm title" id="logo" src="images/logo.png">
            </div>
+
            <div class="section">
-                <div class="post lg title"><h1>Welcome to Talking Walls!</h1></div>
-                <div class="post lg title"><h3>we are building a feedback loop between the design and implementation of building energy efficiency measures.</h3></div>
-                <div class="post lg title"><a class="post lg title" href="#contactus"><h2>click here to contact us!</h2></a><h2>keep scrolling for answers to why, how, and when</h2></div>
+                
+                <div class="post lg title"><h2>welcome to talking walls!</h2><h3> we are building a smart platform to check building energy efficiency.</h3></div>
+                  <div class="post lg title"><h2>keep scrolling to find out more!</h2></div>
+                <div class="post lg title"><a class="post lg title" href="#contactus"><h2>click here to contact us!</h2></a></div>
            </div>
 
-           <div class="textblk"><h4>why? to fill a knowledge gap between how building energy efficiency measures are designed and how they actually perform. The Investor Confidence Project of the Environmental Defense Fund identified uncertainty about return on investments as one of the 3 main barriers to investment in existing building energy efficiency retrofits. Buildings are responsible for roughly 30% of green-house gas emissions in the US. If we can reduce building energy consumption through investment in effective energy efficiency measures, we can make our society more sustainable.</h4></div>
+           <div class="textblk"><h4>Buildings are responsible for roughly 30% of green-house gas emissions in the US. There is movement in the construction industry towards green design, but these efforts are almost exclusively based on modeled energy savings. There is a knowledge gap between this modeled savings and actual energy consumption.</h4></div>
            <div class="section">
                 <div class="post xs"><img class="sketch" src="images/designer.png"></div>
                 <div class="post sm"><img class="sketch" src="images/builder.png"></div>
@@ -235,11 +243,11 @@
                 <div class="post xs"><img class="sketch" src="images/thegap/gap.png"></div>
                 <div class="post sm"><img class="sketch" src="images/thegap/user_gap.png"></div>
            </div>
-           <div class="textblk"><h4>how? with an online application that connects designers and builders with the building users and systems. </h4></div>
+           <div class="textblk"><h4>Talking walls will close this gap by helping project teams see if energy saving goals measure up. It provides designers and builders with feedback on designs strategies, improving future projects. It helps owners recoup the energy savings of efficiency investments. It promotes efficiency awareness to building occupants and optimizes operation.</h4></div>
            <div class="section">
                 <div class="post lg"><img class="sketch" src="images/theapp.png"></div>
            </div>
-           <div class="textblk"><h4>when? we will be launching the first protoype summer 2017. This phase includes uploading design information and utility data to create a compairison feedback loop. </h4></div>
+           <div class="textblk"><h4>We will be launching the first protoype summer 2017. This phase includes uploading design information and utility data to create a comparison feedback loop. </h4></div>
            <div class="section">
                 <div class="post lg title"><h2>1 upload design energy model</h2></div>
                 <div class="post sm"><img class="sketch" src="images/phase1/designer_p1.png"></div>
@@ -253,7 +261,7 @@
                 <div class="post xs"><img class="sketch" src="images/phase1/app_p1b.png"></div>
            </div>
 
-           <div class="textblk"><h4>interested? share your email and/or checkout out our preliminary, pre-beta prelude platform!</h4></div>
+           <div class="textblk"><h4>interested? share your email and/or checkout out our preliminary, alpha prototype at the click me button!</h4></div>
     
             <form method="POST" action="/visitor" class="section">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -275,7 +283,7 @@
                 <a target="_blank" href="https://www.instagram.com/ifawallcouldtalk/?hl=en">    <i class="fa fa-instagram fa-5x" aria-hidden="true"></i>
                 </a>
                 <i id="emailicon" class="fa fa-envelope-square fa-5x" aria-hidden="true"></i>
-                <div id="email" class="hide" style="color:#42f4c5;background-color:black;"><h4>kvarner@ifawallcouldtalk.com</h4></div>
+                <div id="email" class="hide" style="color:#42f4c5;background-color:black;"><h4>annajmorton@gmail.com</h4></div>
                 <a class="post lg title" href="#backtotop">
                     <h2>return to top of page</h2>
                 </a>
