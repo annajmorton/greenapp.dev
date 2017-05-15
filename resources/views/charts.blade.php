@@ -139,7 +139,7 @@
                 };
                 
                 var myChart = new xChart('line-dotted', data, '#graphic',opts);
-                var percent_diff = (sum_umeter - sum_eplus)/((sum_umeter + sum_eplus)/2);
+                var percent_diff = (sum_umeter - sum_eplus)/((sum_umeter + sum_eplus)/2)*100;
                 document.getElementById('title').innerHTML ="<h1>monthly energy consumption kBtu</h1>";
                 document.getElementById('legend').innerHTML = "<svg width='40' height='40'><g class=' main umeter bar   color0'><rect x='5' y='5' width='30' height='30'/></g></svg><div><h5>Energy Model</h5></div><svg width='40' height='40'><g class=' main umeter bar   color1'><rect x='5' y='5' width='30' height='30'/></g></svg><div><h5>Utility Meter</h5></div><div style='height:40px;width:40px;'></div><div><h5>Percent Difference: "+ percent_diff.toFixed(2) + "%</h5></div>";
 

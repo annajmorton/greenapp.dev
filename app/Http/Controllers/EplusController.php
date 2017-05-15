@@ -18,14 +18,8 @@ class EplusController extends Controller
         $idf_path = storage_path('default') . "/monthmeter.idf";
         $weather_path = storage_path('default') . "/USA_TX_San.Antonio.Intl.AP.722530_TMY3.epw";
         $data_path = storage_path('default') ."/data_Office_default.csv";
-        
-        //run EnergyPlus File Here
-        $result = Eplus::generateFiles($idf_path, $weather_path);
 
-        if (!$result['success']) {
-            session()->flash('eperror', 'Your file did not run successfully');
-            return back();
-        }
+        // skips running energyplus to save time... 
 
         $mtr_file = base_path('output') . "/eplus.mtr";
         $result = Meter::LoadEplusData($mtr_file);
