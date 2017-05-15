@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width" />
     <script src="https://use.fontawesome.com/892c4b30ee.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet"> --}}
     {{-- <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet"> --}}
     <style>
         html, body {
@@ -19,8 +20,9 @@
             display: table;
             font-weight: 100;
             /*font-family: 'Arial';*/
-            font-family: 'Inconsolata', monospace;
+            /*font-family: 'Inconsolata', monospace;*/
             /*font-family: 'Ultra', serif;*/
+            font-family: 'Raleway', sans-serif;
             background-color: black;
             color: white;
         }
@@ -247,7 +249,7 @@
            <div class="section">
                 <div class="post lg"><img class="sketch" src="images/theapp.png"></div>
            </div>
-           <div class="textblk"><h4>We will be launching the first prototype Summer 2017. This phase includes uploading design information and utility data to create a comparison feedback loop. </h4></div>
+           <div class="textblk"><h4>We will be launching the first beta prototype in 2017. This phase includes uploading design information and utility data to create a comparison feedback loop. </h4></div>
            <div class="section">
                 <div class="post lg title"><h2>1 upload energy goals</h2></div>
                 <div class="post sm"><img class="sketch" src="images/phase1/designer_p1.png"></div>
@@ -261,21 +263,21 @@
                 <div class="post xs"><img class="sketch" src="images/phase1/app_p1b.png"></div>
            </div>
 
-           <div class="textblk"><h4>interested? share your email and/or checkout out our preliminary, alpha prototype at the click me button!</h4></div>
+           <div class="textblk"><h4>interested? share your email and/or checkout out our preliminary, alpha prototype below!</h4></div>
     
             <form method="POST" action="/visitor" class="section">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="email" pattern="[^ @]*@[^ @]*" name="email" value="" placeholder="type email...">
 
-                @foreach ($surveys as $survey)
+        {{--         @foreach ($surveys as $survey)
                     <div>
                         <label class="checkbox-inline">
                             <input name="options[]" type="checkbox" value= {{{$survey->id}}} >{{$survey->survey_question}}
                         </label>
                     </div>
-                @endforeach
+                @endforeach --}}
                 
-                <input type="submit" value="click me!">
+                <input type="submit" value="demo alpha">
             </form>
 
             <div>

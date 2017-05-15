@@ -2,7 +2,8 @@
 
 @section('styles')
     @parent
-
+     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style>
         html, body {
             height: 100%;
@@ -14,9 +15,8 @@
             width: 100%;
             display: table;
             font-weight: 100;
-            font-family: 'Lato';
+            font-family: 'Raleway', sans-serif;
         }
-
         .container {
             text-align: center;
             display: table-cell;
@@ -33,7 +33,8 @@
         }
         #default{
             color: red;
-            background-color: 
+            background-color:
+            font-family: 'Permanent Marker', cursive; 
         }
     </style>
 @endsection
@@ -49,9 +50,15 @@
         <form class="formid" action="/eplus" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <button type="submit"><h1>don't have the files below? click here to run the default files...</h1></button> 
+            <label><h1>don't have the files below? click the red default button to run the default files...</h1></label>
+            <br>
+            <button style="background-color:red;color:white;"type="submit">default</button> 
         </form>
     </div>
+
+    <br>
+    <br>
+    <br>
 
     <div id="uploads">
         <form class="formid" action="/eplus" method="POST" enctype="multipart/form-data">
