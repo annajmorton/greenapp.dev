@@ -229,47 +229,32 @@
     <div class="parallax">
         <div class="page">
            <div class="section"></div>
-           <div class="title" style="border: 5px solid black; background-color:#FBB606;color:black;"><h1>Share Your Carbon Footprint</h1></div>
-           <div class="section"></div>
-
-           
-           <div class="textblk">
-            <div class="title-med">
-              <h2>Carbon Scoreboard</h2>
-            </div>
-            <!-- demo root element -->
-            <div id="demo">
-              
-              <demo-grid class="table"
-                v-clearform
-                :data="gridData"
-                :columns="gridColumns"
-                :filter-key="searchQuery">
-              </demo-grid>
-            </div>
-              
-
-           </div>
-           <div class="section"></div>
-
-          <div class="title">
-                <a href="https://www3.epa.gov/carbon-footprint-calculator/" target="_blank">
-                    <h2>click this link to calculate your footprint!</h2>
-                </a>   
-           </div>
+           <div class="title" style="border: 5px solid black; background-color:#FBB606;color:black;"><h1>Instructions!</h1></div>
 
            <div class="section"></div>
            <div class="textblk">
-                <div class="title-med">
-                  <h2>input your data and post to the scoreboard!</h2>
-                </div>
-                <form id="postScoreForm" v-on:submit.prevent="onSubmit">
-                    <input type="text" placeholder="first name" v-model="fname" required>
-                    <input type="text" placeholder="last name" v-model="lname" required>
-                    <input type="email" pattern="[^ @]*@[^ @]*" v-model="email" value="" placeholder="type email..." required>
-                    <input type="text" placeholder="carbon score" v-model="lbsCO2" required>
-                    <input type="submit" value="click to post!" v-on:click.stop="postScore">
-                </form>
+            <ul>
+              <li>Enter in your HOME utility data.  If you have access to your utility data online, feel free to use that.  If not, please estimate your monthly averages or use the US national averages provided:
+                <ul>
+                  <li>$23/month natural gas</li>
+                  <li>$44/month electricty</li>
+                  <li>$72/month fuel oil</li>
+                  <li>$37/month propane</li>
+                </ul>
+              </li>
+              <li>If you have home efficiencies measures in place, or planned, please fill them in as applicable (programmable thermostat, lighting, power settings, washer/dryer, ENERGY STAR products)</li>
+              <li>Continue on to the TRANSPORTATION section.  Fill in the number of vehicles you have in your household, how often you maintain them, the estimated miles traveled per year, and miles per gallon your vehicle gets.  If you do not know this information, please use the US national averages provided:
+                <ul>
+                  <li>12,480 miles/year</li>
+                  <li>21.4 miles/gallon</li>
+                </ul>
+          
+              </li>
+              <li> Continue on to the WASTE section.  Fill in products you recycled at home.  If you plan to recycle additional materials, please check those boxes in the following section.</li>
+              <li>View your final carbon report.  If you have planned new actions moving forward, see what kind of savings those actions offer.</li>
+              <li>Once complete, view your report and post your data to the scoreboard by launching this URL: http://greenappy.info/score</li>
+            </ul>
+
           </div>
 
 
@@ -284,142 +269,4 @@
         </div>
     </div>
 @endsection
-
-@section('scripts')
-    @parent
-    <script src="https://unpkg.com/vue"></script>
-  <!-- component template -->
-    <script type="text/x-template" id="grid-template">
-      <table>
-        <thead>
-          <tr>
-            <th v-for="key in columns"
-              @click="sortBy(key)"
-              :class="{ active: sortKey == key }">
-              @{{ key | capitalize }}
-              <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-              </span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="entry in filteredData">
-            <td v-for="key in columns">
-              @{{entry[key]}}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </script>
-    <script type="text/javascript">
-        // register the grid component
-        Vue.component('demo-grid', {
-          template: '#grid-template',
-          props: {
-            data: Array,
-            columns: Array,
-            filterKey: String
-          },
-          data: function () {
-            var sortOrders = {}
-            this.columns.forEach(function (key) {
-              sortOrders[key] = 1
-            })
-            return {
-              sortKey: '',
-              sortOrders: sortOrders
-            }
-          },
-          computed: {
-            filteredData: function () {
-              var sortKey = this.sortKey
-              var filterKey = this.filterKey && this.filterKey.toLowerCase()
-              var order = this.sortOrders[sortKey] || 1
-              var data = this.data
-              if (filterKey) {
-                data = data.filter(function (row) {
-                  return Object.keys(row).some(function (key) {
-                    return String(row[key]).toLowerCase().indexOf(filterKey) > -1
-                  })
-                })
-              }
-              if (sortKey) {
-                data = data.slice().sort(function (a, b) {
-                  a = a[sortKey]
-                  b = b[sortKey]
-                  return (a === b ? 0 : a > b ? 1 : -1) * order
-                })
-              }
-              return data
-            }
-          },
-          filters: {
-            capitalize: function (str) {
-              return str.charAt(0).toUpperCase() + str.slice(1)
-            }
-          },
-          methods: {
-            sortBy: function (key) {
-              this.sortKey = key
-              this.sortOrders[key] = this.sortOrders[key] * -1
-            }
-          }
-        })
-
-        // bootstrap the demo
-        var demo = new Vue({
-          el: '#demo',
-          data: {
-            searchQuery: '',
-            gridColumns: ['fname', 'lname','email','lbsCO2'],
-            gridData: [
-              { fname: 'Chuck', lname: 'Norris', email: 'chuck@rocks.com',lbsCO2 : 5000 },
-              { fname: 'Bruce', lname: 'Lee', email:'whataguy@thebest.com',lbsCO2:9000 },
-              { fname: 'Jackie', lname: 'Chan', email:'avoidit@meoh.com', lbsCO2:7000 }
-            ]
-          }
-        })
-        var postScoreForm = new Vue({
-            el: '#postScoreForm',
-            data: {
-                fname:'',
-                lname:'',
-                email:'',
-                lbsCO2: ''
-            },
-            methods: {
-              postScore: function(event){
-                  
-                  if (this.fname&&this.lname&&this.email&&this.lbsCO2) {
-                      
-                      demo.gridData.push({
-                        fname:this.fname,
-                        lname:this.lname,
-                        email:this.email,
-                        lbsCO2:this.lbsCO2
-                      });
-                     
-                  };
-
-              },
-
-              cleardata: function(){
-                
-                alert('you are on the Carbon Scoreboard! checkit out!');
-                this.fname = '';
-                this.lname = '';
-                this.email = '';
-                this.lbsCO2 = '';
-              }
-          }
-
-        });
-
-        Vue.directive('clearform',{
-            componentUpdated: function(el){
-               postScoreForm.cleardata();
-            }
-        })
-    </script>
-  
-@endsection
+   

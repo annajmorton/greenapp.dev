@@ -31,3 +31,6 @@ Route::get('/novel', function () {
 Route::get('/score', function () {
     return view('score');
 });
+Route::get('/instructions', function () {
+    return view('instructions');
+});

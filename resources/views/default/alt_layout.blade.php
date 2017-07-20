@@ -5,7 +5,8 @@
     <head>
         <title>Talking Walls</title>
         <link rel="icon" href="images/favicon.png">
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+
+
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
         <script src="{{ URL::asset('assets/jquery/js/jquery.min.js') }}"></script>
