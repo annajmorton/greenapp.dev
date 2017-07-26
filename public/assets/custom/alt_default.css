@@ -1,0 +1,178 @@
+/*
+
+    page layout and wrapping
+
+*/
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-weight: 100;
+    font-family: 'Economica', sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+.page{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+@media only screen and (min-width: 769px) {
+    .parallax{
+        background-image: url("/images/cork_board.jpeg");
+        background-attachment: fixed;
+    
+    }
+    .section{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .post{
+        width: auto;
+        height: 100%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .parallax{
+        background-image: url("/images/cork_board.jpeg");
+        background-attachment: fixed;
+    }
+    .section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+}
+
+
+/*
+
+    text blocks and chunks - colors and styles
+
+*/
+
+/*black space*/
+.spacer{
+    height: 30px;
+    width: 100%; 
+}
+
+/*content chunks*/
+.textblk{
+    text-align: center;
+    background-color: white;
+    padding: 5%;
+    color: black;
+    text-decoration: bold;
+}
+
+/*main titles*/
+.title{
+    font-family: 'Raleway', sans-serif;
+    color:black;
+    color: #ff72de;
+    font-size: 4em;
+    /*background-color:#ff72de;*/
+    background-color: black;
+    margin-top: none;
+    margin-left:2%; 
+    margin-right:2%;
+    padding-left: 2%; 
+    padding-right:2%;
+}
+/*lesser titles*/
+.title-med{
+  background-color: #42f4dc;
+  margin-bottom: 10%;
+}
+
+
+
+/*
+
+    input action!!!! - colors and styles
+
+*/
+
+input {
+    background-color: black;
+    /*border: 2px solid black;*/
+    /*border-radius: 5%;*/
+    border: none;
+    min-width: 25%;
+    margin: auto;
+    margin-bottom: 5%;
+    padding: 5%;
+    display: block;
+    min-height: 80px; 
+    min-width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    color: #FBB606;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+}
+
+/*input placeholder font color*/
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ff72de;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #ff72de;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #ff72de;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #ff72de;
+}
+
+/* mouse over link */
+input:hover {
+    font-weight: bold;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* selected link */
+input:focus {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19); 
+    outline: none;
+    border-bottom: solid black 5px;
+    background-color: #42f4c5;
+    color: #FBB606;
+    margin: 5%;
+    padding: 5%;
+}
+
+[type="submit"]:focus {
+    border: solid black 5px;
+    color: yellow;
+}
+.checkbox-inline{
+    color: black;
+    font-weight: bold;
+    color: black;
+    text-shadow:
+    -2px -2px 0 #fff,
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+    2px 2px 0 #fff; 
+}
+a {
+  color: #42f4dc;
+}
+a:visited { 
+    color: #ff72de;
+}

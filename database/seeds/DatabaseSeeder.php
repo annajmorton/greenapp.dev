@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call(SurveyTableSeeder::class);
+        $this->call(FootprintTableSeeder::class);
+        $this->call(PresenterTableSeeder::class);
 
         Model::reguard();
     }

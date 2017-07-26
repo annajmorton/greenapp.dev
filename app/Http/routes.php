@@ -25,8 +25,8 @@ Route::put('eplus', 'EplusController@runDefault');
 Route::get('loaderio-575b745215eb9a611a928399a24abac8', function(){
 	return view('loaderio');
 });
-Route::get('/novel', function () {
-    return view('novel');
+Route::get('/guess', function () {
+    return view('guess');
 });
 Route::get('/score', function () {
     return view('score');
@@ -34,3 +34,4 @@ Route::get('/score', function () {
 Route::get('/instructions', function () {
     return view('instructions');
 });
+Route::resource('ibpsa17', 'Ibpsa17Controller');
