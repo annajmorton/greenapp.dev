@@ -1,0 +1,207 @@
+/*
+
+    page layout and wrapping
+
+*/
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-weight: 100;
+    font-family: 'Economica', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.content {
+    text-align: center;
+    display: inline-block;
+}
+.textblk{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    width: 100%;
+    padding: 5%;
+    min-height: 300px;
+}
+.post.lg.title{
+    color: black;
+    background-color: white;
+    width: 25%;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.title{
+    font-family: 'Raleway', sans-serif;
+    color:black;
+    font-size: 5em;
+    margin-top: none;
+}
+
+.page{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+img#logo{
+    background-color: transparent;
+    width: 100%;
+    box-shadow: none;
+}
+
+.bkgrnopac{
+    background: rgba(159, 161, 163, 0.8);
+}
+
+@media only screen and (min-width: 769px) {
+    .parallax{
+        background-image: url("/images/wall-speech.png"), url("/images/brick_3background.jpg");
+        background-size: 50%, cover;
+        background-width: auto, auto;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: left bottom, top;
+    
+    }
+    .section{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+    .post{
+        width: auto;
+        height: 100%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .parallax{
+        background-image: url("/images/wall-speech.png"), url("/images/brick_3background.jpg");
+        background-size: 100%, cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: left bottom, top;
+    }
+    .section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .post.lg{
+        width: 100%;
+        height: auto;
+    }
+    .post.sm{
+        width: 50%;
+        height: auto;
+    }
+    .post.xs{
+        width: 25%;
+        height: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .post.lg.title {
+        width: auto;
+        height: auto;
+    }
+}
+.sketch{
+    width: 80%;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.spacer{
+    height: 30px;
+    width: 100%; 
+}
+
+input {
+    background-color: black;
+    border: none;
+    min-width: 25%;
+    margin: 5%;
+    padding: 5%;
+    display: block;
+    min-height: 80px; 
+    min-width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    color: yellow;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+}
+
+/*input placeholder font color*/
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ff72de;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #ff72de;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #ff72de;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #ff72de;
+}
+
+/* mouse over link */
+input:hover {
+    font-weight: bold;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* selected link */
+input:focus {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19); 
+    outline: none;
+    border-bottom: solid black 5px;
+    background-color: #42f4c5;
+    color: #ff72de;
+    margin: 5%;
+    padding: 5%;
+}
+
+[type="submit"]:focus {
+    border: solid black 5px;
+    color: yellow;
+}
+
+/*hide the placeholder*/
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+.checkbox-inline{
+    color: black;
+    font-weight: bold;
+    color: black;
+    text-shadow:
+    -2px -2px 0 #fff,
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+    2px 2px 0 #fff; 
+}
+i{
+    color: black;
+}
+.hide{
+    display: none;
+}

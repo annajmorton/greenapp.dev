@@ -2,18 +2,12 @@
 
 @section('styles')
   @parent
-   <meta name="viewport" content="width=device-width" />
+   
    {{-- This is the token Laravel requires for non-GET requests --}}
    <meta id="_token" name="csrf-token" value="{{ csrf_token() }}">
    <meta id="getAPIurl" name="getAPIurl" value="{{ action('Ibpsa17Controller@index')}}"> 
    <meta id="postAPIurl" name="postAPIurl" value="{{ action('Ibpsa17Controller@store')}}"> 
 
-
-   <script src="https://use.fontawesome.com/892c4b30ee.js"></script>
-
-   <link href="https://fonts.googleapis.com/css?family=Economica" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Raleway:800" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="/assets/custom/alt_default.css">   
 @endsection
 
 

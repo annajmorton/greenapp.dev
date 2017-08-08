@@ -76,6 +76,7 @@ body{
     padding: 5%;
     color: black;
     text-decoration: bold;
+    font-size:1.33em;
 }
 
 /*main titles*/
@@ -108,13 +109,10 @@ body{
 
 input {
     background-color: black;
-    /*border: 2px solid black;*/
-    /*border-radius: 5%;*/
     border: none;
     min-width: 25%;
     margin: auto;
     margin-bottom: 5%;
-    padding: 5%;
     display: block;
     min-height: 80px; 
     min-width: 300px;
@@ -139,21 +137,12 @@ input {
   color: #ff72de;
 }
 
-/* mouse over link */
-input:hover {
-    font-weight: bold;
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
-}
-
-/* selected link */
 input:focus {
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19); 
+
     outline: none;
-    border-bottom: solid black 5px;
-    background-color: #42f4c5;
+    border-bottom: solid #42f4dc 5px;
+    background-color: #5c5e5e;
     color: #FBB606;
-    margin: 5%;
-    padding: 5%;
 }
 
 [type="submit"]:focus {

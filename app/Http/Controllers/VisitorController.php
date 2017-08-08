@@ -41,7 +41,7 @@ class VisitorController extends Controller
             }
             $visitor->save();
         }
-        return view('welcome');
+        return view('demo/demo');
     }
 
 }

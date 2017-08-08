@@ -29,7 +29,7 @@ class EplusController extends Controller
 
         $eplus_out = $result['data'];
         $umeter_out = $result2['data'];
-        return view('charts', compact('eplus_out','umeter_out'));
+        return view('demo/charts', compact('eplus_out','umeter_out'));
     }
 
     public function uploadFiles()
@@ -60,7 +60,7 @@ class EplusController extends Controller
 
         $eplus_out = $result['data'];
         $umeter_out = $result2['data'];
-        return view('charts', compact('eplus_out','umeter_out'));
+        return view('demo/charts', compact('eplus_out','umeter_out'));
     }
 
     private function validateUploadFiles()

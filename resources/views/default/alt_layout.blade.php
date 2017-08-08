@@ -10,6 +10,15 @@
 
         <script src="{{ URL::asset('assets/jquery/js/jquery.min.js') }}"></script>
         <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/assets/custom/alt_default.css">  
+        <meta name="viewport" content="width=device-width" />
+        
+        {{-- fonts for the style sheet alt_default.css --}}
+        <script src="https://use.fontawesome.com/892c4b30ee.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Economica" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:800" rel="stylesheet">
+
+        @include('nav/analytics')
         @include('nav/alt_navstyle')
         @yield('styles')
     </head>

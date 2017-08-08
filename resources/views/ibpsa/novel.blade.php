@@ -2,10 +2,7 @@
 
 @section('styles')
     @parent
-    <meta name="viewport" content="width=device-width" />
-    <script src="https://use.fontawesome.com/892c4b30ee.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css?family=Economica" rel="stylesheet">
+    
     {{-- <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet"> --}}
     <style>
         html, body {

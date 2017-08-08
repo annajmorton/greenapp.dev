@@ -16,22 +16,26 @@ Route::get('visitor', 'VisitorController@showhome')->name('visitor');
 Route::get('', function () {
     return redirect()->route('visitor');
 });
-
 Route::post('visitor','VisitorController@store');
 Route::get('alpha','VisitorController@store');
-
 Route::post('eplus', 'EplusController@uploadFiles');
 Route::put('eplus', 'EplusController@runDefault');
+
+// testing site visiting capacity
 Route::get('loaderio-575b745215eb9a611a928399a24abac8', function(){
 	return view('loaderio');
 });
+
+
+
+// these are all for the Ibpsa conference
+Route::resource('ibpsa17', 'Ibpsa17Controller');
 Route::get('/guess', function () {
-    return view('guess');
+    return view('ibpsa/guess');
 });
 Route::get('/score', function () {
-    return view('score');
+    return view('ibpsa/score');
 });
 Route::get('/instructions', function () {
-    return view('instructions');
+    return view('ibpsa/instructions');
 });
-Route::resource('ibpsa17', 'Ibpsa17Controller');
