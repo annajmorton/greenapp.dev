@@ -19,12 +19,15 @@ class FootprintTableSeeder extends Seeder
 
         $anna->first_name = 'anna';
         $anna->last_name = 'morton';
+        $anna->calculated = 43011;
 
         $ajit->first_name = 'ajit';
         $ajit->last_name = 'naik';
+        $ajit->calculated = 22656;
 
         $scott->first_name = 'scott';
         $scott->last_name = 'farbman';
+        $scott->calculated = 15257;
 
         $anna->save();
         $ajit->save();
