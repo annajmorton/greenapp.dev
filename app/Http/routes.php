@@ -11,20 +11,21 @@
 |
 */
 
-Route::get('visitor', 'VisitorController@showhome')->name('visitor');
+// Route::get('visitor', 'VisitorController@showhome')->name('visitor');
 
-Route::get('', function () {
-    return redirect()->route('visitor');
-});
-Route::post('visitor','VisitorController@store');
-Route::get('alpha','VisitorController@store');
-Route::post('eplus', 'EplusController@uploadFiles');
-Route::put('eplus', 'EplusController@runDefault');
+// Route::get('', function () {
+//     return redirect()->route('visitor');
+// });
+// Route::post('visitor','VisitorController@store');
+// Route::get('alpha','VisitorController@store');
+// Route::post('eplus', 'EplusController@uploadFiles');
+// Route::put('eplus', 'EplusController@runDefault');
 
-// testing site visiting capacity
-Route::get('loaderio-575b745215eb9a611a928399a24abac8', function(){
-	return view('loaderio');
-});
+// // testing site visiting capacity
+// Route::get('loaderio-575b745215eb9a611a928399a24abac8', function(){
+// 	return view('loaderio');
+// });
+
 
 
 
@@ -38,4 +39,8 @@ Route::get('/score', function () {
 });
 Route::get('/post', function () {
     return view('ibpsa/post');
+});
+
+Route::get('', function () {
+    return view('ibpsa/guess');
 });
