@@ -23,7 +23,7 @@
            
            <div class="textblk">
             <div class="title-med">
-              <h2>Carbon Scoreboard</h2>
+              <h2>Carbon Scoreboard lbsCO2e</h2>
             </div>
             <!-- demo root element -->
             <div id="app"> 
@@ -33,8 +33,12 @@
               <demo-grid class="table"
                 :data="gridData"
                 :columns="gridColumns"
-                :filter-key="searchQuery">
+                :filter-key="searchQuery"
+                :averaged = "average">
               </demo-grid>
+              <demo-avg
+                :averaged = "average">
+              </demo-avg>
             </div>
               
 
@@ -88,6 +92,12 @@
         </tbody>
       </table>
     </script>
+    <script type="text/x-template" id="avg-template">
+      <div class="title-med">
+        <h2>Calculated Average lbsC02e: @{{ averaged |numcommasep }}</h2>
+      </div>
+    </script>
+      
     <script type="text/javascript" src="/assets/custom/scoreboard.js"></script>
   
 @endsection

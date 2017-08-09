@@ -3,6 +3,33 @@
   Vue component creation
 
 ***************************************/ 
+Vue.component('demo-avg', {
+  template: '#avg-template',
+  props: {
+    averaged: Number
+  },
+  filters: {
+    capitalize: function (data) {
+      if (isNaN(data)) {
+        return data.charAt(0).toUpperCase() + data.slice(1)
+      }
+      return data
+    },
+
+    numcommasep: function(data){
+      data_int = parseInt(data)
+      if (!isNaN(data_int)) {
+        return (data_int + '').replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+      }
+      return data
+    },
+
+    replaceunderscore: function (str){
+      return str = str.replace(/[_-]/g, " "); 
+    }
+      
+  }
+});
 
 Vue.component('demo-grid', {
   template: '#grid-template',
@@ -100,6 +127,7 @@ function getFromServer(){
     alert("the scoreboard can't be loaded at this time")
   }).success(function(data){
     app.ajaxupdate(data);
+    app.averageCalc();
   });  
 };
 
@@ -132,15 +160,27 @@ var app = new Vue({
   data: {
     gridData: [],
     gridColumns: [],
-    searchQuery: ''
+    searchQuery: '',
+    average: 0
   },
   methods: {
     ajaxupdate:function(response_data){
       this.gridData = response_data.gridData,
       this.gridColumns = response_data.gridColumns,
       this.searchQuery = response_data.searchQuery
+    },
+    averageCalc:function(){
+      var calval = this.gridData;
+      var totalval = 0;
+      var i=0
+      while(i<calval.length) {
+        totalval += calval[i].calculated;
+        i++;
+      }
+      this.average = totalval/i;
     }
   }
+
 });
 
 /***************************************
@@ -154,6 +194,7 @@ getFromServer();
 setInterval(function(){ 
   
   getFromServer();
+  app.averageCalc();
 
 }, 13000);
 

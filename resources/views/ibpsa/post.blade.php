@@ -43,11 +43,11 @@
            
            <div class="section"></div>
 
-                <div class="title">
-                <a href="https://www3.epa.gov/carbon-footprint-calculator/" target="_blank">
-                    <h2>click this link to open the EPA carbon footprint calculator in new tab!</h2>
-                </a>   
-           </div>
+            <div class="title">
+              <a href="https://www3.epa.gov/carbon-footprint-calculator/" target="_blank">
+                  <h2>click this link to open the EPA carbon footprint calculator in new tab!</h2>
+              </a>   
+            </div>
 
            <div class="section"></div>
             <div class="textblk">
@@ -68,12 +68,7 @@
                 <li>Go to the Score page to see submitted footprints on the scoreboard!</li>
               </ol>
             </div>
-
-          </div>
-          <div class="section"></div>
-          <div class="section"></div>
-
-          <div class="title" style="border: 5px solid black; background-color:#FBB606;color:black;"><h1>Post to the scoreboard here!</h1></div>
+        
            <div class="section"></div>
            <div class="textblk">
                 <div class="title-med">
