@@ -173,9 +173,9 @@ var app = new Vue({
       var calval = this.gridData;
       var totalval = 0;
       var i=0;
-      if (calval.length>1) {
+      if (calval.length>0) {
         while(i<calval.length) {
-          totalval += calval[i].calculated;
+          totalval += parseInt(calval[i].calculated);
           i++;
         }
         this.average = totalval/i;
