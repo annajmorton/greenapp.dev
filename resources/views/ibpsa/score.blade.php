@@ -39,28 +39,7 @@
               
 
            </div>
-           <div class="section"></div>
-
-          <div class="title">
-                <a href="https://www3.epa.gov/carbon-footprint-calculator/" target="_blank">
-                    <h2>click this link to calculate your footprint!</h2>
-                </a>   
-           </div>
-
-           <div class="section"></div>
-           <div class="textblk">
-                <div class="title-med">
-                  <h2>input your data and post to the scoreboard!</h2>
-                </div>
-                <form id="postScoreForm" v-on:submit.prevent="onSubmit">
-                    <input type="text" placeholder="first name" v-model="first_name" required>
-                    <input type="text" placeholder="last name" v-model="last_name" required>
-                    <input type="email" pattern="[^ @]*@[^ @]*" v-model="email" value="" placeholder="type email..." required>
-                    <input type="text" placeholder="guess carbon score" v-model="guess" required>
-                    <input type="text" placeholder="calculated carbon score" v-model="calculated" required>
-                    <input type="submit" value="click to post!" v-on:click.stop="postScore">
-                </form>
-          </div>
+      
 
 
           <div class="section"></div>

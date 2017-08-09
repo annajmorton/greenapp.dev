@@ -40,6 +40,14 @@ body{
         width: auto;
         height: 100%;
     }
+    .textblk{
+        width: 50%;
+        margin: auto;
+    }
+    .title{
+        width: 50%;
+        margin: auto;
+    }
 }
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */

@@ -67,7 +67,7 @@ class Ibpsa17Controller extends Controller
         $footprint->calculated = $request->calculated;
         $footprint->save();
         
-        return response()->json($request->all(), 200);
+        return redirect('score');
     }
 
     /**

@@ -30,10 +30,10 @@ function postToServer(data){
   }).success(function(data){
     console.log(data);
     alert("your guess is posted!");
-    var user = confirm("go to the exercise instructions?");
+    var user = confirm("ready to post and share your footprint?");
 
     if(user){
-      window.location.href = "/instructions";
+      window.location.href = "/post";
     }
 
   });  

@@ -143,49 +143,6 @@ var app = new Vue({
   }
 });
 
-var postScoreForm = new Vue({
-    el: '#postScoreForm',
-    data: {
-        first_name:'',
-        last_name:'',
-        email:'',
-        guess: '',
-        calculated: '',
-    },
-    methods: {
-      postScore: function(event){
-          
-          if (this.first_name&&this.last_name&&this.email&&this.guess&&this.calculated) {
-              
-              app.gridData.push({
-                first_name:this.first_name,
-                last_name:this.last_name,
-                email:this.email,
-                guess:this.guess,
-                calculated:this.calculated
-              });
-              
-              this.cleardata();
-              data = app.gridData[(app.gridData.length - 1)]
-              postToServer(data);
-          };
-
-      },
-
-      cleardata: function(){
-        
-        alert('you are on the Carbon Scoreboard! checkit out!');
-        this.first_name = '';
-        this.last_name = '';
-        this.email = '';
-        this.guess = '';
-        this.calculated = '';
-      }
-
-    }
-
-});
-
 /***************************************
   
   load data and regular data refresh

@@ -36,6 +36,6 @@ Route::get('/guess', function () {
 Route::get('/score', function () {
     return view('ibpsa/score');
 });
-Route::get('/instructions', function () {
-    return view('ibpsa/instructions');
+Route::get('/post', function () {
+    return view('ibpsa/post');
 });

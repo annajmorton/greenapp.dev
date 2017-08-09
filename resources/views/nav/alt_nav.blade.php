@@ -15,13 +15,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/instructions">
-                    <span class="glyphicon glyphicon-pushpin"></span>
-                    Instructions
-                </a></li>
                 <li><a href="/guess">
                     <span class="glyphicon glyphicon-pushpin"></span>
                     Guess
+                </a></li>
+                <li><a href="/post">
+                    <span class="glyphicon glyphicon-pushpin"></span>
+                    Post
                 </a></li>
                 <li><a href="/score">
                     <span class="glyphicon glyphicon-pushpin"></span>
