@@ -26,17 +26,17 @@
          <div class="title" style="border: 5px solid black; background-color:#FBB606;color:black;"><h1>Guess Our Carbon Footprint</h1></div>
          <div class="section"></div>
          
-           <div class="row">
+           <div>
               <img src="/images/anna.png">
               <input required name="anna" v-model.number="guess.anna" placeholder="guess anna's score">
            </div>
 
-           <div class="row">
+           <div>
               <img src="/images/ajit.png">
               <input required name="ajit" v-model.number="guess.ajit" placeholder="guess ajit's score">
            </div>
 
-           <div class="row">
+           <div>
               <img src="/images/scott.png">
               <input required name="scott" v-model.number="guess.scott" placeholder="guess scott's score">
            </div>
