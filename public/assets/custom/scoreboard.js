@@ -172,12 +172,15 @@ var app = new Vue({
     averageCalc:function(){
       var calval = this.gridData;
       var totalval = 0;
-      var i=0
+      var i=0;
       while(i<calval.length) {
         totalval += calval[i].calculated;
         i++;
       }
-      this.average = totalval/i;
+      // this.average = totalval/i;
+      if(i>0){
+        this.average = totalval/i;
+      }
     }
   }
 

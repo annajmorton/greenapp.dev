@@ -34,10 +34,10 @@ class FootprintTableSeeder extends Seeder
         $scott->save();
 
 
-        if( App::environment() === 'local' ){
-            $attendees = 150;
-            // Create three App\User instances...
-        	$footprint = factory(App\Footprint::class, $attendees)->create();
-        }
+        // if( App::environment() === 'local' ){
+        //     $attendees = 150;
+        //     // Create three App\User instances...
+        // 	$footprint = factory(App\Footprint::class, $attendees)->create();
+        // }
     }
 }
