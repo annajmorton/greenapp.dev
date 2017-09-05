@@ -1,4 +1,4 @@
-@extends('default/layout')
+@extends('default/demo_layout')
 
 @section('styles')
     @parent

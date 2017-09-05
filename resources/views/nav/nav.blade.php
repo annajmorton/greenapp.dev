@@ -15,17 +15,17 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/instructions">
-                    <span class="glyphicon glyphicon-pushpin"></span>
-                    Instructions
+                <li><a href="/">
+                    <span class="glyphicon glyphicon-home"></span>
+                    home
                 </a></li>
-                <li><a href="/guess">
-                    <span class="glyphicon glyphicon-pushpin"></span>
-                    Guess
+                <li><a href="/alpha">
+                    <span class="glyphicon glyphicon-cog"></span>
+                    demo
                 </a></li>
-                <li><a href="/score">
-                    <span class="glyphicon glyphicon-pushpin"></span>
-                    Score
+                <li><a href="/visitor#contactus">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    contact
                 </a></li>
             </ul>
         </div>

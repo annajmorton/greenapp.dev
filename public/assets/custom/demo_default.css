@@ -40,6 +40,13 @@ body {
     width: 25%;
 }
 
+form {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 h1 {
     font-size: 3.5em;
 }
@@ -83,39 +90,7 @@ img#logo{
     width: 80%;
 }
 
-@media only screen and (min-width: 769px) {
-    .parallax{
-        background-image: url("/images/wall-speech.png"), url("/images/brick_3background.jpg");
-        background-size: 50%, cover;
-        background-width: auto, auto;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: left bottom, top;
-    
-    }
-    .post{
-        width: auto;
-        height: 100%;
-    }
 
-    .section{
-        align-items: flex-end;    
-    }
-}
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .parallax{
-        background-image: url("/images/wall-speech.png"), url("/images/brick_3background.jpg");
-        background-size: 100%, cover;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: left bottom, top;
-    }
-    .section{
-        align-items: center;    
-    }
- 
-}
 .sketch{
     width: auto;  
     background-color: white;

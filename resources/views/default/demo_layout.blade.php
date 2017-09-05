@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
         <script src="{{ URL::asset('assets/jquery/js/jquery.min.js') }}"></script>
-        <link rel="stylesheet" type="text/css" href="/assets/custom/default.css">
+        <link rel="stylesheet" type="text/css" href="/assets/custom/demo_default.css">
 
         <meta name="viewport" content="width=device-width" />
         
@@ -27,6 +27,9 @@
     <body>
         <div class="container">
             @include('nav/nav')
+            <div class="title">
+                <h1>alpha demo</h1>
+            </div>
             @include('errors.eplus')
             @include('errors.file')
             @yield('content')
