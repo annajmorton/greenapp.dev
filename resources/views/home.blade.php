@@ -47,7 +47,7 @@
              </div>
              <div class="thumbnail">
                   <div class="textblk caption">
-                    <h3>What if we had an application that automated data collection, simplify model comparison, and suggested ways to improve performance?</h3>
+                    <h3>What if we had an application that automated data collection, simplified model comparison, and suggested ways to improve performance?</h3>
                   </div>
                   <img class="sketch" src="images/4_theapp.png">
              </div>
