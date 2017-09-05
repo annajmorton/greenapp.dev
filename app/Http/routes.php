@@ -30,10 +30,10 @@ Route::put('eplus', 'EplusController@runDefault');
 
 
 // these are all for the Ibpsa conference
-// Route::resource('ibpsa17', 'Ibpsa17Controller');
-// Route::get('/guess', function () {
-//     return view('ibpsa/guess');
-// });
+Route::resource('ibpsa17', 'Ibpsa17Controller');
+Route::get('/guess', function () {
+    return view('ibpsa/guess');
+});
 // Route::get('/score', function () {
 //     return view('ibpsa/score');
 // });

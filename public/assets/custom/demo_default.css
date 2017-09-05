@@ -19,19 +19,6 @@ body {
     font-size: 2em;
 }
 
-.content {
-    text-align: center;
-    display: inline-block;
-}
-.textblk{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: black;
-    width: 100%;
-    padding: 5%;
-}
-
 .title{
     font-family: 'Raleway', sans-serif;
     color:black;
@@ -56,60 +43,17 @@ h2 {
 h3 {
     font-size: 1.5em;
 }
-.page{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-}
 
-img#logo{
-    background-color: transparent;
-    width: 100%;
-    box-shadow: none;
-}
 
-.bkgrnopac{
-    background: rgba(159, 161, 163, 0.8);
+.section{
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     padding-top: 5%;
     padding-bottom: 5%;
-    color: white;
 }
 
-.section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 900px;
-    position: relative;
-    height: 100%;
-    width: 80%;
-}
-
-
-.sketch{
-    width: auto;  
-    background-color: white;
-}
-
-.thumbnail{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    max-width: 75%;
-    background-color:black;
-    padding-bottom:2%;
-    margin-bottom:5%; 
-}
-.thumbnail .caption{
-    color: white;
-}
-.spacer{
-    height: 30px;
-    width: 100%; 
-}
 
 input {
     background-color: black;
@@ -123,7 +67,6 @@ input {
     display: block;
     min-height: 80px; 
     min-width: 300px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
     color: yellow;
     font-family: 'Raleway', sans-serif;
@@ -164,17 +107,4 @@ input:focus {
 [type="submit"]:focus {
     border: solid black 5px;
     color: yellow;
-}
-
-/*hide the placeholder*/
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
-input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
-input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
-
-i{
-    color: black;
-}
-.hide{
-    display: none;
 }

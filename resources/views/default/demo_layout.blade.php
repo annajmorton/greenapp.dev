@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
         <script src="{{ URL::asset('assets/jquery/js/jquery.min.js') }}"></script>
+
+        <script type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
         <link rel="stylesheet" type="text/css" href="/assets/custom/demo_default.css">
 
         <meta name="viewport" content="width=device-width" />

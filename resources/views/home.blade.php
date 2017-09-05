@@ -78,25 +78,24 @@
             </div>
 
         </div>
-    </div>
 @endsection
 
 @section('scripts')
     @parent
 
     <script type="text/javascript">
-    $('#emailicon').click( 
-      function() {
-        $( "#emailicon").toggleClass( "hide" );
-        $( "#email" ).toggleClass( "hide" );
-      }
-    );
-     $('#email').click( 
-      function() {
-        $( "#emailicon" ).toggleClass( "hide" );
-        $( "#email" ).toggleClass( "hide" );
-      }
-    );
+      $('#emailicon').click( 
+        function() {
+          $( "#emailicon").toggleClass( "hide" );
+          $( "#email" ).toggleClass( "hide" );
+        }
+      );
+       $('#email').click( 
+        function() {
+          $( "#emailicon" ).toggleClass( "hide" );
+          $( "#email" ).toggleClass( "hide" );
+        }
+      );
 
     </script>
 @endsection
