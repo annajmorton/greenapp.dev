@@ -28,7 +28,7 @@
 
              <div class="thumbnail">
                   <div class="textblk caption">
-                    <h3>Buildings are responsible for roughly 40% of greenhouse gas emissions in the US, but efforts to reduce their energy consumption rely on models and not measured energy performance.</h3>
+                    <h3>Buildings are responsible for roughly 40% of greenhouse gas emissions in the US, but most efforts to reduce their energy consumption rely on models and not measured energy performance.</h3>
                   </div>
                   <img class="sketch" src="images/1_40percent.png">
              </div>
