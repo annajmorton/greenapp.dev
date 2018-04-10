@@ -15,11 +15,11 @@
            <div class="section">
                 
                 <div class="title">
-                  <h1>welcome to talking walls!</h1>
-                  <h3> we are building a smart platform to check modeled building energy against measured data.</h3>
+                  <h1>Welcome to Talking Walls!</h1>
+                  <h3> We are creating a smart platform that compares the energy models of building designs to real-world usage data.</h3>
                 </div>
                 <div class="title">
-                  <h2>keep scrolling to find out more...</h2>
+                  <h2>Keep scrolling to find out more...</h2>
                 </div>
                 
            </div>
@@ -28,31 +28,31 @@
 
              <div class="thumbnail">
                   <div class="textblk caption">
-                    <h3>Buildings are responsible for roughly 40% of greenhouse gas emissions in the US. Most efforts to reduce building energy use rely on models and do not measure individual building energy consumption.</h3>
+                    <h3>Buildings are responsible for roughly 40% of greenhouse gas emissions in the US, but efforts to reduce their energy consumption rely on models and not measured energy performance.</h3>
                   </div>
                   <img class="sketch" src="images/1_40percent.png">
              </div>
 
              <div class="thumbnail">
                   <div class="textblk caption">
-                    <h3>There is a knowledge gap between models and actual measured energy consumption.</h3>
+                    <h3>Why? There is a knowledge gap between models and measured energy consumption.</h3>
                   </div>
                   <img class="sketch" src="images/2_temp.png">
              </div>
              <div class="thumbnail">
                   <div class="textblk caption">
-                    <h3>Why? Collecting energy data takes time, buildings are complex and unique, and energy data isn't granular (if your energy bills are higher than you expected, how do you fix it?).</h3>
+                    <h3>Collecting energy data takes time, buildings are complex and unique, and energy data isn't granular. if your energy bills are higher than you expected, how do you fix it?).</h3>
                   </div>
                   <img class="sketch" src="images/3_ballnchain.png">
              </div>
              <div class="thumbnail">
                   <div class="textblk caption">
-                    <h3>What if we had an application that automated data collection, simplified model comparison, and suggested ways to improve performance?</h3>
+                    <h3>What if there were an application that automated data collection, simplified model comparison, and suggested ways to improve performance?</h3>
                   </div>
                   <img class="sketch" src="images/4_theapp.png">
              </div>
              
-             <div class="textblk"><h3>We want to build that application! Contact us and checkout out our preliminary, alpha prototype below!</h3></div>
+             <div class="textblk"><h3>We want Talking Walls to be that application! Contact us and check out our alpha prototype below!</h3></div>
 
           </div>
     
